@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071018">
+  <meta name="description" content="6820 連訊興櫃分點、觀察期推估成本與光互連籌碼追蹤">
+  <title>6820 主力雷達｜連訊</title>
+  <link rel="stylesheet" href="./assets/app.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="brand"><span>6820</span><b>主力雷達</b></div>
+      <div class="live"><i></i><span id="data-status">載入中</span></div>
+    </header>
+
+    <section class="quote" id="overview">
+      <div class="quote-top">
+        <div><p>興櫃 · 光互連／CPO</p><h1 id="stock-name">連訊</h1><span id="stock-id">6820</span></div>
+        <div class="price"><strong id="close">—</strong><span id="change">—</span></div>
+      </div>
+      <div class="timestamp" id="timestamp">讀取每日快照…</div>
+      <div class="pulse">
+        <div class="gauge" id="gauge"><span id="signal-score">—</span></div>
+        <div><small>6820 籌碼確認</small><h2 id="signal-label">資料載入中</h2><p id="signal-copy">正在核對行情與分點資料。</p></div>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <article><span id="visible-net-label">核心觀察期淨額</span><strong id="visible-net">—</strong><small>自 2025 年起可得資料</small></article>
+      <article><span>成交量</span><strong id="volume">—</strong><small>當日市場</small></article>
+      <article><span>籌碼集中</span><strong id="concentration">—</strong><small id="concentration-pct">—</small></article>
+    </section>
+
+    <section class="section" id="brokers">
+      <div class="section-head"><div><p>CORE BROKER FLOW</p><h2>核心觀察分點 20</h2></div><span id="period-meta">2025 年起觀察期</span></div>
+      <div class="period-tabs" aria-label="買賣超期間">
+        <button class="active" data-period="core">核心</button>
+        <button data-period="1">每日</button>
+        <button data-period="5">近 5 日</button>
+        <button data-period="10">近 10 日</button>
+        <button data-period="20">近 20 日</button>
+      </div>
+      <div class="segmented" id="flow-side-tabs">
+        <button class="active-buy" data-side="buy">買超 <b id="buy-count">0</b></button>
+        <button data-side="sell">賣超 <b id="sell-count">0</b></button>
+      </div>
+      <div class="broker-list" id="broker-list"></div>
+    </section>
+
+    <section class="section" id="impact">
+      <div class="section-head"><div><p>PRICE IMPACT</p><h2>分點與隔日股價關聯</h2></div><span>60 日滾動</span></div>
+      <div id="impact-list"></div>
+    </section>
+
+    <section class="section" id="strategy">
+      <div class="section-head"><div><p>PLAYBOOK</p><h2>6820 跟隨條件</h2></div><span>五日籌碼與成本確認</span></div>
+      <div class="rules">
+        <article><i>1</i><div><b>固定觀察群</b><p>依 6820 自 2025 年起可得歷史的淨投入選出 20 個分點，先看 60 日影響樣本，不用單日排行代替。</p></div></article>
+        <article><i>2</i><div><b>五日確認</b><p>高影響前 5 分點至少 3 家近 5 日淨買、群體合計淨買，且興櫃加權均價高於群體觀察期成本，才顯示偏多確認。</p></div></article>
+        <article><i>3</i><div><b>持續觀察</b><p>光互連與 CPO 題材只作產業背景；持續用分點庫存、近 5 日買賣及成本線檢查籌碼有沒有延續。</p></div></article>
+        <article><i>4</i><div><b>轉弱</b><p>高影響前 5 分點至少 3 家近 5 日淨賣、群體合計淨賣且價格落到群體成本下方，才標示同步降溫。</p></div></article>
+      </div>
+      <p class="disclaimer" id="method-note"></p>
+    </section>
+
+    <nav class="bottom-nav" aria-label="戰情室導覽">
+      <a href="#overview"><i>◉</i><span>總覽</span></a><a href="#brokers"><i>↕</i><span>主力</span></a><a href="#impact"><i>⌁</i><span>影響力</span></a><a href="#strategy"><i>✓</i><span>策略</span></a>
+    </nav>
+  </main>
+  <script src="./assets/app.js" defer></script>
+</body>
+</html>
+
